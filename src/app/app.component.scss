@@ -1,0 +1,21 @@
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.skill-percent{
+  &:hover{
+    .percent-animation{
+      width: 100%;
+    }
+  }
+  .percent-animation{
+    position: absolute;
+    width: 0;
+    left: 0;
+    height: 100%;
+    background: rgb(0,0,0,.2);
+    transition: all .3s ease-in-out;
+  }
+}

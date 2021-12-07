@@ -1,0 +1,83 @@
+<div class="container mx-auto px-4 h-full py-4">
+  <div class="row h-full rounded-lg overflow-hidden shadow-lg border bg-white">
+    <div class="w-4/12 bg-blue-900 h-full p-4 text-white flex flex-col">
+      <!-- TITLE -->
+      <div class="w-full">
+        <div class="title flex h-36">
+          <div class="flex h-full items-center">
+            <img
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+              src="/assets/img/me.png"
+            />
+          </div>
+          <div class="p-2 m-0 flex-1 flex flex-col justify-between text-right">
+            <h1 class="text-2xl">Jolver André Gil Quevedo</h1>
+            <ul class="m-0 italic text-sm">
+              <li>Frontend Senior Developer</li>
+              <li>Laravel Developer</li>
+              <li>Sql server DBA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider-md bg-white my-3"></div>
+      </div>
+
+
+      <div class="w-full flex-1">
+        <ng-scrollbar>
+          <!-- content -->
+        <!-- Information -->
+        <div class="flex flex-col">
+          <p class="text-center text-xl mt-3">Contact me</p>
+
+          <div class="w-100 my-3">
+            <div class="row" *ngFor="let info of informations">
+              <div class="w-2/12">
+                <i [class]="info.icon"></i>
+              </div>
+              <a
+                class="w-10/12"
+                target="_blank"
+                *ngIf="!!info.link; else infoText"
+                [href]="info.link"
+              >
+                {{ info.data }}
+              </a>
+              <ng-template #infoText>
+                <div class="w-10/12">
+                  {{ info.data }}
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-md bg-white my-3"></div>
+
+        <!-- Skills -->
+        <div class="flex flex-col">
+          <p class="text-center text-xl mt-3">My Skills</p>
+          <div class="w-full my-3">
+            <div class="row items-center my-3" *ngFor="let skill of skills">
+              <div class="w-2/12 h-full">
+                <i class="text-2xl" [class]="skill.icon"></i>
+              </div>
+              <div class="w-10/12">
+                <p>
+                  {{ skill.description }}
+                </p>
+                <div class="text-center rounded bg-indigo-100 text-indigo-900 relative skill-percent" [style.width]="skill.percent + '%'">
+                  <div class="percent-animation"></div>
+                  <p class="text-sm">{{ skill.percent }}%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </ng-scrollbar>
+
+      </div>
+
+    </div>
+  </div>
+</div>
